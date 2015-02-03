@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ScriptMachine">
+      <UniqueIdentifier>{7ed72ead-baa9-4a8c-beee-ffeb0a250a39}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ScriptMachine\NativeArg.cpp">
+      <Filter>ScriptMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptMachine\Natives.cpp">
+      <Filter>ScriptMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptMachine\scrThread.cpp">
+      <Filter>ScriptMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="libc.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="memory.cpp" />
+    <ClCompile Include="printf.cpp" />
+    <ClCompile Include="ThreadArray.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ScriptMachine\NativeArg.h">
+      <Filter>ScriptMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptMachine\NativeCall.h">
+      <Filter>ScriptMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptMachine\Natives.h">
+      <Filter>ScriptMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptMachine\scrThread.h">
+      <Filter>ScriptMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h" />
+    <ClInclude Include="memory.h" />
+    <ClInclude Include="ThreadArray.h" />
+  </ItemGroup>
+</Project>
