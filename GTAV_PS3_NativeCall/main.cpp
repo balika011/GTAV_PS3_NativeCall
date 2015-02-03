@@ -1,7 +1,7 @@
 #include "main.h"
 
 
-SYS_MODULE_INFO("GTA V Mod Menu", 0, 1, 1);
+SYS_MODULE_INFO("GTA V NativeCall", 0, 1, 1);
 SYS_MODULE_START(EntryPoint);
 
 SYS_LIB_DECLARE_WITH_STUB(LIBNAME, SYS_LIB_AUTO_EXPORT, STUBNAME);
@@ -86,7 +86,7 @@ extern "C" int FakeExportFunction()
 
 extern "C" int EntryPoint()
 {
-	if(sys_ppu_thread_create(&g_MainThreadID, MainThread, 0, 1000, 2048, 0, "GTA V Mod Menu") != CELL_OK)
+	if(sys_ppu_thread_create(&g_MainThreadID, MainThread, 0, 1000, 2048, 0, "GTA V NativeCall") != CELL_OK)
 	{
 		printf("Unable to create the Thread !");
 	}

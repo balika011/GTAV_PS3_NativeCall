@@ -890,8 +890,8 @@ int printf(const char *fmt, ...)
 	va_start(args, fmt);
 	
 	
-	l_iLen = strlen("[GTAV Mod Menu] -> ");
-	strcpy(strBuf, "[GTAV Mod Menu] -> ");
+	l_iLen = strlen("[GTAV NativeCall] -> ");
+	strcpy(strBuf, "[GTAV NativeCall] -> ");
 	vsnprintf(&strBuf[l_iLen], PRINTF_MAX - l_iLen, fmt, args);	
 	
 	va_end(args);
