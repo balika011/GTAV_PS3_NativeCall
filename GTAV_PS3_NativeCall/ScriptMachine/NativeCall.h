@@ -11,7 +11,7 @@ struct Natives // SNative
 
 
 
-static Natives** g_Natives = (Natives**) 0x1DDB2B0;
+static Natives** g_Natives = (Natives**) 0x01DDB730;
 
 
 class NativeCall
