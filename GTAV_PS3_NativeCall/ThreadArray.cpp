@@ -51,7 +51,7 @@ scrThread* ThreadArray::GetThreadByHash(unsigned int a_uiHash)
 		if(l_pThreadArray->pData[i])
 		{
 			
-			if(l_pThreadArray->pData[i]->m_iThreadID == a_uiHash)
+			if(l_pThreadArray->pData[i]->m_iThreadHash == a_uiHash)
 			{
 				l_Thread = l_pThreadArray->pData[i];
 			}
