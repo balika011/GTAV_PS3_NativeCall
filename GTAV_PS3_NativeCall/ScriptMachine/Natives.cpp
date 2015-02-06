@@ -556,17 +556,17 @@ namespace PLAYER
 	void SET_AIR_DRAG_MULTIPLIER_FOR_PLAYERS_VEHICLE(Player p, float m)
 	{
 		NativeCall l_NativeCall;
-		l_NativeCall.Invoke<Void>(0xF20F72E5, 2, p, m);
+		l_NativeCall.Invoke<Void>(0xF20F72E5, 2, p, float_int(m));
 	}
 	void _SET_SWIM_SPEED_MULTIPLIER(Player p, float m)
 	{
 		NativeCall l_NativeCall;
-		l_NativeCall.Invoke<Void>(0xB986FF47, 2, p, m);
+		l_NativeCall.Invoke<Void>(0xB986FF47, 2, p, float_int(m));
 	}
 	void _SET_MOVE_SPEED_MULTIPLIER(Player p, float m)
 	{
 		NativeCall l_NativeCall;
-		l_NativeCall.Invoke<Void>(0x825423C2, 2, p, m);
+		l_NativeCall.Invoke<Void>(0x825423C2, 2, p, float_int(m));
 	}
 	Any GET_TIME_SINCE_LAST_ARREST()
 	{
@@ -1056,17 +1056,17 @@ namespace ENTITY
 	float GET_ENTITY_FORWARD_X(Entity e)
 	{
 		NativeCall l_NativeCall;
-		return l_NativeCall.Invoke<float>(0x49FAE914, 1, e);
+		return l_NativeCall.Invoke<float>(0x49FAE914, 1, float_int(e));
 	}
 	float GET_ENTITY_FORWARD_Y(Entity e)
 	{
 		NativeCall l_NativeCall;
-		return l_NativeCall.Invoke<float>(0x9E2F917C, 1, e);
+		return l_NativeCall.Invoke<float>(0x9E2F917C, 1, float_int(e));
 	}
 	float GET_ENTITY_HEADING(Entity e)
 	{
 		NativeCall l_NativeCall;
-		return l_NativeCall.Invoke<float>(0x972CC383, 1, e);
+		return l_NativeCall.Invoke<float>(0x972CC383, 1, float_int(e));
 	}
 	int GET_ENTITY_HEALTH(Entity e)
 	{
@@ -1111,7 +1111,7 @@ namespace ENTITY
 	Vector3 GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(Entity e, float x, float y, float z)
 	{
 		NativeCall l_NativeCall;
-		return l_NativeCall.Invoke<Vector3>(0xABCF043A, 4, e, x, y, z);
+		return l_NativeCall.Invoke<Vector3>(0xABCF043A, 4, e, float_int(x), float_int(y), float_int(z));
 	}
 	Any GET_ENTITY_PITCH(Any p0)
 	{
@@ -1146,7 +1146,7 @@ namespace ENTITY
 	float GET_ENTITY_SPEED(Entity e)
 	{
 		NativeCall l_NativeCall;
-		return l_NativeCall.Invoke<float>(0x9E1E4798, 1, e);
+		return l_NativeCall.Invoke<float>(0x9E1E4798, 1, float_int(e));
 	}
 	Vector3 GET_ENTITY_SPEED_VECTOR(Any p0, Any p1)
 	{
@@ -1501,12 +1501,12 @@ namespace ENTITY
 	void SET_ENTITY_COORDS(Entity e, float x, float y, float z, BOOL b1, BOOL b2, BOOL b3, BOOL b4)
 	{
 		NativeCall l_NativeCall;
-		l_NativeCall.Invoke<Void>(0xDF70B41B, 8, e, x, y, z, b1, b2, b3, b4);
+		l_NativeCall.Invoke<Void>(0xDF70B41B, 8, e, float_int(x), float_int(y), float_int(z), b1, b2, b3, b4);
 	}
 	void SET_ENTITY_COORDS_NO_OFFSET(Entity e, float x, float y, float z, BOOL b1, BOOL b2, BOOL b3)
 	{
 		NativeCall l_NativeCall;
-		l_NativeCall.Invoke<Void>(0x4C83DE8D, 7, e, x, y, z, b1, b2, b3);
+		l_NativeCall.Invoke<Void>(0x4C83DE8D, 7, e, float_int(x), float_int(y), float_int(z), b1, b2, b3);
 	}
 	void SET_ENTITY_DYNAMIC(Any p0, Any p1)
 	{
@@ -1516,7 +1516,7 @@ namespace ENTITY
 	void SET_ENTITY_HEADING(Entity e, float heading)
 	{
 		NativeCall l_NativeCall;
-		l_NativeCall.Invoke<Void>(0xE0FF064D, 2, e, heading);
+		l_NativeCall.Invoke<Void>(0xE0FF064D, 2, e, float_int(heading));
 	}
 	void SET_ENTITY_HEALTH(Entity e, int health)
 	{
@@ -1921,12 +1921,12 @@ namespace PED
 	void SET_PED_DENSITY_MULTIPLIER_THIS_FRAME(float m)
 	{
 		NativeCall l_NativeCall;
-		l_NativeCall.Invoke<Void>(0x039C82BB, 1, m);
+		l_NativeCall.Invoke<Void>(0x039C82BB, 1, float_int(m));
 	}
 	void SET_SCENARIO_PED_DENSITY_MULTIPLIER_THIS_FRAME(float m1, float m2)
 	{
 		NativeCall l_NativeCall;
-		l_NativeCall.Invoke<Void>(0x2909ABF0, 2, m1, m2);
+		l_NativeCall.Invoke<Void>(0x2909ABF0, 2, float_int(m1), float_int(m2));
 	}
 	void _0xB48C0C04()
 	{
@@ -4292,7 +4292,7 @@ namespace VEHICLE
 	Vehicle CREATE_VEHICLE(Hash model, float x, float y, float z, float r, BOOL b1, BOOL b2)
 	{
 		NativeCall l_NativeCall;
-		return l_NativeCall.Invoke<Vehicle>(0xDD75460A, 7, model, x, y, z, r, b1, b2);
+		return l_NativeCall.Invoke<Vehicle>(0xDD75460A, 7, model, float_int(x), float_int(y), float_int(z), r, b1, b2);
 	}
 	void DELETE_VEHICLE(Vehicle *v)
 	{
@@ -4677,7 +4677,7 @@ namespace VEHICLE
 	void SET_VEHICLE_FORWARD_SPEED(Vehicle veh, float speed)
 	{
 		NativeCall l_NativeCall;
-		l_NativeCall.Invoke<Void>(0x69880D14, 2, veh, speed);
+		l_NativeCall.Invoke<Void>(0x69880D14, 2, veh, float_int(speed));
 	}
 	void _0xCBC7D3C8(Any p0, Any p1, Any p2, Any p3)
 	{
@@ -8666,12 +8666,12 @@ namespace GAMEPLAY
 	void SET_WIND(float f)
 	{
 		NativeCall l_NativeCall;
-		l_NativeCall.Invoke<Void>(0xC6294698, 1, f);
+		l_NativeCall.Invoke<Void>(0xC6294698, 1, float_int(f));
 	}
 	void SET_WIND_SPEED(float speed)
 	{
 		NativeCall l_NativeCall;
-		l_NativeCall.Invoke<Void>(0x45705F94, 1, speed);
+		l_NativeCall.Invoke<Void>(0x45705F94, 1, float_int(speed));
 	}
 	float GET_WIND_SPEED()
 	{
@@ -8681,7 +8681,7 @@ namespace GAMEPLAY
 	void SET_WIND_DIRECTION(float f)
 	{
 		NativeCall l_NativeCall;
-		l_NativeCall.Invoke<Void>(0x381AEEE9, 1, f);
+		l_NativeCall.Invoke<Void>(0x381AEEE9, 1, float_int(f));
 	}
 	Vector3 GET_WIND_DIRECTION()
 	{
@@ -8756,7 +8756,7 @@ namespace GAMEPLAY
 	BOOL GET_GROUND_Z_FOR_3D_COORD(float x, float y, float z, float *pZ)
 	{
 		NativeCall l_NativeCall;
-		return l_NativeCall.Invoke<BOOL>(0xA1BFD5E0, 4, x, y, z, pZ);
+		return l_NativeCall.Invoke<BOOL>(0xA1BFD5E0, 4, float_int(x), float_int(y), float_int(z), pZ);
 	}
 	Any _0x64D91CED(Any p0, Any p1, Any p2, Any p3, Any p4)
 	{
@@ -9086,7 +9086,7 @@ namespace GAMEPLAY
 	void SHOOT_SINGLE_BULLET_BETWEEN_COORDS(float x1, float y1, float z1, float x2, float y2, float z2, int unk1, BOOL unk2, Hash weaponBullet, Ped shooter, BOOL unk3, BOOL unk4, float unk5)
 	{
 		NativeCall l_NativeCall;
-		l_NativeCall.Invoke<Void>(0xCB7415AC, 13, x1, y1, z1, x2, y2, z2, unk1, unk2, weaponBullet, shooter, unk3, unk4, unk5);
+		l_NativeCall.Invoke<Void>(0xCB7415AC, 13, float_int(x1), float_int(y1), float_int(z1), float_int(x2), float_int(y2), float_int(z2), unk1, unk2, weaponBullet, shooter, unk3, unk4, float_int(unk5));
 	}
 	void _0x52ACCB7B(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12, Any p13)
 	{
@@ -11303,12 +11303,12 @@ namespace CAM
 	void SET_CAM_ROT(Cam cam, float x, float y, float z, int mode)
 	{
 		NativeCall l_NativeCall;
-		l_NativeCall.Invoke<Void>(0xEE38B3C1, 5, cam, x, y, z, mode);
+		l_NativeCall.Invoke<Void>(0xEE38B3C1, 5, cam, float_int(x), float_int(y), float_int(z), mode);
 	}
 	void SET_CAM_FOV(Cam cam, float val)
 	{
 		NativeCall l_NativeCall;
-		l_NativeCall.Invoke<Void>(0xD3D5D74F, 2, cam, val);
+		l_NativeCall.Invoke<Void>(0xD3D5D74F, 2, cam, float_int(val));
 	}
 	void SET_CAM_NEAR_CLIP(Any p0, Any p1)
 	{
@@ -11363,7 +11363,7 @@ namespace CAM
 	void ATTACH_CAM_TO_PED_BONE(Cam cam, Ped p, int boneId, float x, float y, float z, BOOL unk)
 	{
 		NativeCall l_NativeCall;
-		l_NativeCall.Invoke<Void>(0x506BB35C, 7, cam, p, boneId, x, y, z, unk);
+		l_NativeCall.Invoke<Void>(0x506BB35C, 7, cam, p, boneId, float_int(x), float_int(y), float_int(z), unk);
 	}
 	void DETACH_CAM(Any p0)
 	{
@@ -12650,7 +12650,7 @@ namespace STREAMING
 	void LOAD_SCENE(float x, float y, float z)
 	{
 		NativeCall l_NativeCall;
-		l_NativeCall.Invoke<Void>(0xB72403F5, 3, x, y, z);
+		l_NativeCall.Invoke<Void>(0xB72403F5, 3, float_int(x), float_int(y), float_int(z));
 	}
 	Any NETWORK_UPDATE_LOAD_SCENE()
 	{
@@ -13252,10 +13252,10 @@ namespace SCRIPT
 		NativeCall l_NativeCall;
 		return l_NativeCall.Invoke<Any>(0x029D3841, 1, script);
 	}
-	Any GET_THIS_SCRIPT_NAME()
+	string GET_THIS_SCRIPT_NAME()
 	{
 		NativeCall l_NativeCall;
-		return l_NativeCall.Invoke<Any>(0xA40FD5D9, 0);
+		return l_NativeCall.Invoke<string>(0xA40FD5D9, 0);
 	}
 	Any _0x2BEE1F45()
 	{
@@ -13560,7 +13560,7 @@ namespace UI
 	int _0xAA318785(float x, float y)
 	{
 		NativeCall l_NativeCall;
-		return l_NativeCall.Invoke<int>(0xAA318785, 2, x, y);
+		return l_NativeCall.Invoke<int>(0xAA318785, 2, float_int(x), float_int(y));
 	}
 	void _0xB245FC10(Any p0)
 	{
@@ -13910,7 +13910,7 @@ namespace UI
 	float _0x3330175B(float x, float y)
 	{
 		NativeCall l_NativeCall;
-		return l_NativeCall.Invoke<float>(0x3330175B, 2, x, y);
+		return l_NativeCall.Invoke<float>(0x3330175B, 2, float_int(x), float_int(y));
 	}
 	void SET_TEXT_SCALE(float x, float y)
 	{
@@ -13940,7 +13940,7 @@ namespace UI
 	void SET_TEXT_WRAP(float x, float y)
 	{
 		NativeCall l_NativeCall;
-		l_NativeCall.Invoke<Void>(0x6F60AB54, 2, x, y);
+		l_NativeCall.Invoke<Void>(0x6F60AB54, 2, float_int(x), float_int(y));
 	}
 	void SET_TEXT_LEADING(Any p0)
 	{
@@ -14395,7 +14395,7 @@ namespace UI
 	void SET_NEW_WAYPOINT(float a_fX, float a_fY)
 	{
 		NativeCall l_NativeCall;
-		l_NativeCall.Invoke<Void>(0x8444E1F0, 2, a_fX, a_fY);
+		l_NativeCall.Invoke<Void>(0x8444E1F0, 2, float_int(a_fX), float_int(a_fY));
 	}
 	void SET_BLIP_BRIGHT(Any p0, Any p1)
 	{
@@ -18744,12 +18744,12 @@ namespace WATER
 	BOOL GET_WATER_HEIGHT(float x, float y, float z, float *h)
 	{
 		NativeCall l_NativeCall;
-		return l_NativeCall.Invoke<BOOL>(0xD864E17C, 4, x, y, z, h);
+		return l_NativeCall.Invoke<BOOL>(0xD864E17C, 4, float_int(x), float_int(y), float_int(z), h);
 	}
 	BOOL GET_WATER_HEIGHT_NO_WAVES(float x, float y, float z, float *h)
 	{
 		NativeCall l_NativeCall;
-		return l_NativeCall.Invoke<BOOL>(0x262017F8, 4, x, y, z, h);
+		return l_NativeCall.Invoke<BOOL>(0x262017F8, 4, float_int(x), float_int(y), float_int(z), h);
 	}
 	Any _0xAA4AE00C(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6)
 	{
