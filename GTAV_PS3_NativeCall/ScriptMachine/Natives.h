@@ -2735,7 +2735,7 @@ namespace SCRIPT
 	int GET_ID_OF_THIS_THREAD();
 	void TERMINATE_THIS_THREAD();
 	Any _0x029D3841(Hash script);
-	Any GET_THIS_SCRIPT_NAME();
+	string GET_THIS_SCRIPT_NAME();
 	Any _0x2BEE1F45();
 	Any GET_NUMBER_OF_EVENTS(Any p0);
 	Any GET_EVENT_EXISTS(Any p0, Any p1);
