@@ -56,7 +56,7 @@ void MainThread(uint64_t)
 	{
 		// This thread is useless
 		// we need it to make the sprx always loaded on memory
-		ThreadArray::DbgShowAllThread();
+		//ThreadArray::DbgShowAllThread();
 		sys_timer_sleep(5);
 	}
 
