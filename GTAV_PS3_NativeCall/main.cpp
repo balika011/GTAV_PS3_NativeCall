@@ -11,7 +11,22 @@ SYS_LIB_EXPORT(FakeExportFunction, LIBNAME);
 sys_ppu_thread_t	g_MainThreadID;
 
 
-void (*scrThread_loop_original)(scrThread*, int);
+// Thanks wikipedia
+uint32_t jenkins_one_at_a_time_hash(char *key, size_t len)
+{
+    uint32_t hash, i;
+    for(hash = i = 0; i < len; ++i)
+    {
+        hash += key[i];
+        hash += (hash << 10);
+        hash ^= (hash >> 6);
+    }
+    hash += (hash << 3);
+    hash ^= (hash >> 11);
+    hash += (hash << 15);
+    return hash;
+}
+
 
 
 int float_int(float f)
@@ -19,60 +34,29 @@ int float_int(float f)
 	return *(int*)&f;
 }
 
-void scrThread__loop(scrThread* __this, int r4)
+
+
+void CallNativesHere()
 {
-	// Here you call your natives.
 
-	// PLAYER::PLAYER_ID(); // - for example, to retrieve player id
-	// OBJECT::DOES_PICKUP_EXIST(0); // blahblah
-
-	scrThread_loop_original(__this, r4);
 }
 
-#pragma pack(push, 1)
-struct GTAThread__VMT
-{
-	void* dtor;
-	void* unknown;
-	void* reset;
-	void* parse;
-	void* loop;
-	void* kill;
-	void* virtual_function_6;
-};
-#pragma pack(pop, 1)
 
 void MainThread(uint64_t)
 {
-	scrThread*			l_MainPersistent;
-	GTAThread__VMT*		l_ThreadVMT;
-	GTAThread__VMT*		l_NewVMT;
+	scrThread*			l_pNewThread;
 
-	// First Step, wait until the script 'main_persistent' is loaded	
-	printf("Waiting for 'main_persistent' to be found.\n");
-	do
-	{
-		sys_timer_sleep(1);
-		l_MainPersistent = ThreadArray::GetThreadByName("main_persistent");		
-	}
-	while(l_MainPersistent == 0);
-	printf("Script 'main_persistent' found !\n");
+	while(ThreadArray::GetThreadByName("main_persistent") == 0) sys_timer_sleep(1);
 
-	// Second Step, Hijack loop virtual function
-
-	printf("Retrieving original GTAThread VMT and Hijackig it...\n");
-	l_ThreadVMT = *(GTAThread__VMT**)l_MainPersistent;				// Get VMT address
-	l_NewVMT = (GTAThread__VMT*)malloc(sizeof(GTAThread__VMT));		// Alloc a new VMT struct
-	memcpy(l_NewVMT, l_ThreadVMT, sizeof(GTAThread__VMT));			// copy the real VMT to the new one
-	scrThread_loop_original = (void(*)(scrThread*, int))l_ThreadVMT->loop;
-	l_NewVMT->loop = (void*)scrThread__loop;						// Change the loop addr 
-	*(GTAThread__VMT**)l_MainPersistent = l_NewVMT;					// Hijack the VMT
-	printf("Done !\n");
+	printf("Creating our own thread.");
+	l_pNewThread = ThreadArray::NewThread("NativeCallThread");
+	printf("Thread created, have fun!\n");
 
 	for(;;)
 	{
 		// This thread is useless
 		// we need it to make the sprx always loaded on memory
+		ThreadArray::DbgShowAllThread();
 		sys_timer_sleep(5);
 	}
 

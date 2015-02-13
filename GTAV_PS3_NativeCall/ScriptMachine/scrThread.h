@@ -1,20 +1,113 @@
 #ifndef __SCRTHREAD_H__
 #define __SCRTHREAD_H__
 
-#pragma pack(push, 1)
 
+extern uint32_t jenkins_one_at_a_time_hash(char *key, size_t len);
+
+unsigned int __shittyHack();
+void CallNativesHere();
+
+#pragma pack(push, 1)
 class scrThread
 {
 public:
 
-	virtual void virtual_function_0() = 0;
-	virtual void virtual_function_1() = 0;
-	virtual void reset() = 0;
-	virtual void parse() = 0;
-	virtual void loop() = 0;
-	virtual void kill() = 0;
-	virtual void virtual_function_6() = 0;
+	scrThread(char* a_szName)
+	{
+		//printf("scrThread()\n");
+		m_iThreadID		= 0;
+		m_iThreadHash	= jenkins_one_at_a_time_hash(a_szName, strlen(a_szName));
+		m_iThreadState	= 0;
+		m_iIP			= 0;
+		m_iFrameSP		= 0;
+		m_iStackPointer = 0;
+		m_iTimerA		= 0;
+		m_iTimerB		= 0;
+		m_fWaitTime		= 0.0f;
+		m_iUnk0028		= 0;
+		m_iUnk002C		= 0;
+		m_iUnk0030		= 0;
+		m_iUnk0034		= 0;
+		m_iUnk0038		= 0;
+		m_iUnk003C		= 0;
+		m_iVarsOnStack	= 0;
+		m_iUnk0044		= 0;
+		m_iUnk0048		= 0;
+		m_iUnk004C		= 0;
+		m_iUnk0050		= 0;
+		m_pStack		= 0;
+		m_iUnk0058		= 0;
+		m_iUnk005C		= 0;
+		m_iUnk0060		= 0;
+		m_szQuitMessage	= "Why a quit message ? who cares ?";
+		
+		strcpy(m_szScriptName, a_szName);
+	}
 
+	virtual ~scrThread()
+	{
+		//printf("~scrThread()\n");
+	}
+
+	virtual void virtual_function_1()
+	{
+		//printf("virtual_function_1()\n");
+	}
+
+	virtual void reset()
+	{
+		//printf("reset()\n");
+
+		m_iThreadID		= 0;
+		m_iThreadState	= 0;
+		m_iIP			= 0;
+		m_iFrameSP		= 0;
+		m_iStackPointer = 0;
+		m_iTimerA		= 0;
+		m_iTimerB		= 0;
+		m_fWaitTime		= 0.0f;
+		m_iUnk0028		= 0;
+		m_iUnk002C		= 0;
+		m_iUnk0030		= 0;
+		m_iUnk0034		= 0;
+		m_iUnk0038		= 0;
+		m_iUnk003C		= 0;
+		m_iVarsOnStack	= 0;
+		m_iUnk0044		= 0;
+		m_iUnk0048		= 0;
+		m_iUnk004C		= 0;
+		m_iUnk0050		= 0;
+		m_pStack		= 0;
+		m_iUnk0058		= 0;
+		m_iUnk005C		= 0;
+		m_iUnk0060		= 0;
+	}
+
+	virtual void parse()
+	{
+		unsigned int l_iOldThread;
+
+		l_iOldThread = *(unsigned int*)(__shittyHack() - 0x6FA0);
+		*(unsigned int*)(__shittyHack() - 0x6FA0) = (unsigned int)this;
+		*(unsigned char*)(__shittyHack() - 0x6F9C) = 1;
+
+
+		CallNativesHere();
+
+
+		*(unsigned int*)(__shittyHack() - 0x6FA0) = l_iOldThread;
+		*(unsigned char*)(__shittyHack() - 0x6F9C) = 0;
+	}
+
+	virtual void loop()
+	{
+		//printf("loop()\n");
+	}
+
+	virtual void kill()
+	{
+		//printf("kill()\n");
+	}
 
 //private:
 	//void* 	__vmt;				// + 0x00
@@ -33,7 +126,7 @@ public:
 	int 	m_iUnk0034;			// + 0x34
 	int 	m_iUnk0038;			// + 0x38
 	int 	m_iUnk003C;			// + 0x3C
-	int 	m_iUnk0040;			// + 0x40
+	int 	m_iVarsOnStack;		// + 0x40
 	int 	m_iUnk0044;			// + 0x44
 	int 	m_iUnk0048;			// + 0x48
 	int 	m_iUnk004C;			// + 0x4C

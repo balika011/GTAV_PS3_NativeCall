@@ -6,8 +6,8 @@ template <typename T>
 struct sysArray
 {
 	T**					pData;
-	short				uSize;
 	short				uCount;
+	short				uSize;
 };
 
 
@@ -15,10 +15,16 @@ struct sysArray
 
 namespace ThreadArray
 {
-	int GetThreadCount();
+	inline int GetThreadCount();
+	inline void SetThreadCount(int a_iValue);
 
 	scrThread* GetThreadByName(char* a_szName);
 	scrThread* GetThreadByHash(unsigned int a_uiHash);
+
+	void DbgShowAllThread();
+
+
+	scrThread* NewThread(char* a_szThreadName);
 
 
 };
