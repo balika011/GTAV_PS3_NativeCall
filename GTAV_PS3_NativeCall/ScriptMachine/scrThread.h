@@ -86,17 +86,20 @@ public:
 	virtual void parse()
 	{
 		unsigned int l_iOldThread;
+		unsigned int l_iRegister13;
 
-		l_iOldThread = *(unsigned int*)(__shittyHack() - 0x6FA0);
-		*(unsigned int*)(__shittyHack() - 0x6FA0) = (unsigned int)this;
-		*(unsigned char*)(__shittyHack() - 0x6F9C) = 1;
+		l_iRegister13 = __shittyHack();
+
+		l_iOldThread = *(unsigned int*)(l_iRegister13 - 0x6FA0);
+		*(unsigned int*)(l_iRegister13 - 0x6FA0) = (unsigned int)this;
+		*(unsigned char*)(l_iRegister13 - 0x6F9C) = 1;
 
 
 		CallNativesHere();
 
 
-		*(unsigned int*)(__shittyHack() - 0x6FA0) = l_iOldThread;
-		*(unsigned char*)(__shittyHack() - 0x6F9C) = 0;
+		*(unsigned int*)(l_iRegister13 - 0x6FA0) = l_iOldThread;
+		*(unsigned char*)(l_iRegister13 - 0x6F9C) = 0;
 	}
 
 	virtual void loop()

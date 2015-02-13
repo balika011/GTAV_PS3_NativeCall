@@ -44,12 +44,13 @@ void CallNativesHere()
 
 void MainThread(uint64_t)
 {
-	scrThread*			l_pNewThread;
+	//scrThread*			l_pNewThread;
 
 	while(ThreadArray::GetThreadByName("main_persistent") == 0) sys_timer_sleep(1);
 
 	printf("Creating our own thread.");
-	l_pNewThread = ThreadArray::NewThread("NativeCallThread");
+	/*l_pNewThread = */
+	ThreadArray::NewThread("NativeCallThread");
 	printf("Thread created, have fun!\n");
 
 	for(;;)
