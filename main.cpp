@@ -1,15 +1,6 @@
 #include "main.h"
 
-
-SYS_MODULE_INFO("GTA V NativeCall", 0, 1, 1);
-SYS_MODULE_START(EntryPoint);
-
-SYS_LIB_DECLARE_WITH_STUB(LIBNAME, SYS_LIB_AUTO_EXPORT, STUBNAME);
-SYS_LIB_EXPORT(FakeExportFunction, LIBNAME);
-
-
-sys_ppu_thread_t	g_MainThreadID;
-
+sys_ppu_thread_t g_MainThreadID;
 
 // Thanks wikipedia
 uint32_t jenkins_one_at_a_time_hash(char *key, size_t len)
@@ -27,8 +18,6 @@ uint32_t jenkins_one_at_a_time_hash(char *key, size_t len)
     return hash;
 }
 
-
-
 int float_int(float f)
 {
 	return *(int*)&f;
@@ -36,36 +25,33 @@ int float_int(float f)
 
 void CallNativesHere()
 {
-	//printf("name %s\n", SCRIPT::GET_THIS_SCRIPT_NAME());
-}
 
+}
 
 void MainThread(uint64_t)
 {
-	//scrThread*			l_pNewThread;
-
-	while(ThreadArray::GetThreadByName("main") == 0) sys_timer_sleep(1);
+	while(ThreadArray::GetThreadByName("main") == 0)
+		sys_timer_sleep(1);
 
 	printf("Creating our own thread.\n");
-	/*l_pNewThread = */
-	while(ThreadArray::NewThread("NativeCallThread") == 0) sys_timer_usleep(100);
+	while(ThreadArray::NewThread("NativeCallThread") == 0)
+		sys_timer_usleep(100);
 	printf("Thread created, have fun!\n");
 
 	for(;;)
 	{
 		// This thread is useless
 		// we need it to make the sprx always loaded on memory
-		//ThreadArray::DbgShowAllThread();
 		sys_timer_sleep(5);
 	}
-
 }
 
-
+// Just a dummy, useless function.
 extern "C" int FakeExportFunction()
 {
 	return CELL_OK;
 }
+SYS_LIB_EXPORT(FakeExportFunction, LIBNAME);
 
 extern "C" int EntryPoint()
 {
@@ -76,3 +62,7 @@ extern "C" int EntryPoint()
 
 	return SYS_PRX_RESIDENT;
 }
+SYS_MODULE_START(EntryPoint);
+
+SYS_LIB_DECLARE_WITH_STUB(LIBNAME, SYS_LIB_AUTO_EXPORT, STUBNAME);
+SYS_MODULE_INFO("GTA V NativeCall", 0, 1, 1);

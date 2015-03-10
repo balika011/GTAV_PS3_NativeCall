@@ -4,6 +4,12 @@
 #pragma pack(push, 1)
 class NativeArg
 {
+private:
+	int* m_pvReturnValues;
+	unsigned int m_uiArgCount;
+	int* m_pvArgValues;
+	unsigned int m_uiReadCount;
+
 public:
 	NativeArg();
 	~NativeArg();
@@ -21,24 +27,14 @@ public:
 	template<typename T>
 	inline T GetResult()
 	{
-		T* Result;
-		
-		Result = (T*)&m_pvReturnValues[m_uiReadCount];
+		T* Result = (T*)&m_pvReturnValues[m_uiReadCount];
 
 		m_uiReadCount += sizeof(T);
 		if((sizeof(T) % 4) != 0)
 			m_uiReadCount += 4 - (sizeof(T) % 4);
 
-		return *(T*)Result;
+		return *Result;
 	}
-
-private:
-	int*			m_pvReturnValues;
-	unsigned int	m_uiArgCount;
-	int*			m_pvArgValues;
-
-
-	unsigned int	m_uiReadCount;
 };
 #pragma pack(pop)
 

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GTAV_PS3_NativeCall", "GTAV_PS3_NativeCall\GTAV_PS3_NativeCall.vcxproj", "{D3226A14-6579-4F34-8CCF-9CBDAD562F85}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GTAV_PS3_NativeCall", "GTAV_PS3_NativeCall.vcxproj", "{D3226A14-6579-4F34-8CCF-9CBDAD562F85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

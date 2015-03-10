@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="libc.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="printf.cpp" />
+    <ClCompile Include="SDK_fixes\libc.cpp" />
+    <ClCompile Include="SDK_fixes\printf.cpp" />
     <ClCompile Include="ScriptMachine\NativeArg.cpp" />
     <ClCompile Include="ScriptMachine\Natives.cpp" />
     <ClCompile Include="ScriptMachine\scrThread.cpp" />

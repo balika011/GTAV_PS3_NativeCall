@@ -13,22 +13,6 @@ void * operator new (std::size_t sz)
 		sz = 1;
 
 	p = malloc (sz);
-	/*
-	while (__builtin_expect ((p = malloc (sz)) == 0, false))
-	{
-		new_handler handler = std::get_new_handler ();
-		if (! handler)
-			return 0;
-		__try
-		{
-			handler ();
-		}
-		__catch(const bad_alloc&)
-		{
-			return 0;
-		}
-	}
-	*/
 	return p;
 }
 

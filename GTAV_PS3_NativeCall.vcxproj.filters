@@ -4,6 +4,9 @@
     <Filter Include="ScriptMachine">
       <UniqueIdentifier>{7ed72ead-baa9-4a8c-beee-ffeb0a250a39}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SDK_fixes">
+      <UniqueIdentifier>{7ed72ead-baa9-4a8c-beee-ffeb0a250a40}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ScriptMachine\NativeArg.cpp">
@@ -15,9 +18,13 @@
     <ClCompile Include="ScriptMachine\scrThread.cpp">
       <Filter>ScriptMachine</Filter>
     </ClCompile>
-    <ClCompile Include="libc.cpp" />
+    <ClCompile Include="SDK_fixes\libc.cpp" />
+      <Filter>SDK_fixes</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK_fixes\printf.cpp" />
+      <Filter>SDK_fixes</Filter>
+    </ClCompile>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="printf.cpp" />
     <ClCompile Include="ThreadArray.cpp" />
   </ItemGroup>
   <ItemGroup>
