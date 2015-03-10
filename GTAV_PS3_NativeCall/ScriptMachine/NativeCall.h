@@ -1,7 +1,7 @@
 #ifndef __NATIVECALL_H__
 #define __NATIVECALL_H__
 
-struct Natives // SNative
+struct Natives
 {	
 	struct Natives*	pLastNativesTable;			// + 0x00
 	unsigned int 	uiNativeFunctions[7];		// + 0x04
@@ -11,7 +11,7 @@ struct Natives // SNative
 
 
 
-static Natives** g_Natives = (Natives**) 0x01DDB730;
+static Natives** g_Natives = (Natives**) 0x01E5F838;
 
 
 class NativeCall

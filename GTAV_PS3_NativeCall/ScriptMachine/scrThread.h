@@ -90,16 +90,14 @@ public:
 
 		l_iRegister13 = __shittyHack();
 
-		l_iOldThread = *(unsigned int*)(l_iRegister13 - 0x6FA0);
-		*(unsigned int*)(l_iRegister13 - 0x6FA0) = (unsigned int)this;
-		*(unsigned char*)(l_iRegister13 - 0x6F9C) = 1;
-
+		l_iOldThread = *(unsigned int*)(l_iRegister13 - 0x6F98);
+		*(unsigned int*)(l_iRegister13 - 0x6F98) = (unsigned int)this;
+		*(unsigned char*)(l_iRegister13 - 0x6F94) = 1;
 
 		CallNativesHere();
 
-
-		*(unsigned int*)(l_iRegister13 - 0x6FA0) = l_iOldThread;
-		*(unsigned char*)(l_iRegister13 - 0x6F9C) = 0;
+		*(unsigned int*)(l_iRegister13 - 0x6F98) = l_iOldThread;
+		*(unsigned char*)(l_iRegister13 - 0x6F94) = 0;
 	}
 
 	virtual void loop()

@@ -15,7 +15,6 @@
 #include <sys/timer.h>
 #include <vector>
 
-#include "memory.h"
 
 // ScriptMachine
 #include "ScriptMachine\Natives.h"

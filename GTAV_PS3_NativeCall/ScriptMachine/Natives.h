@@ -9,7 +9,11 @@ typedef char* string;
 typedef int BOOL;
 typedef void* Void;
 typedef unsigned int Any;
-typedef int Vector3;
+struct Vector3
+{
+	float x, y, z;
+};
+//typedef int Vector3;
 typedef unsigned int Hash;
 typedef unsigned int Entity;
 typedef unsigned int Player;
@@ -252,7 +256,7 @@ namespace ENTITY
 	Hash GET_ENTITY_MODEL(Entity e);
 	Vector3 GET_OFFSET_FROM_ENTITY_GIVEN_WORLD_COORDS(Any p0, Any p1, Any p2, Any p3);
 	Vector3 GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(Entity e, float x, float y, float z);
-	Any GET_ENTITY_PITCH(Any p0);
+	float GET_ENTITY_PITCH(Entity p0);
 	void GET_ENTITY_QUATERNION(Any p0, Any p1, Any p2, Any p3, Any p4);
 	Any GET_ENTITY_ROLL(Any p0);
 	Vector3 GET_ENTITY_ROTATION(Entity e, int mode);
@@ -1015,7 +1019,7 @@ namespace VEHICLE
 	void _0xE74E85CE(Any p0, Any p1);
 	void _0x06C47A6F(Any p0);
 	void SET_VEHICLE_TYRE_FIXED(Any p0, Any p1);
-	void SET_VEHICLE_NUMBER_PLATE_TEXT(Any p0, Any p1);
+	void SET_VEHICLE_NUMBER_PLATE_TEXT(Any p0, string p1);
 	Any GET_VEHICLE_NUMBER_PLATE_TEXT(Any p0);
 	Any GET_NUMBER_OF_VEHICLE_NUMBER_PLATES();
 	void SET_VEHICLE_NUMBER_PLATE_TEXT_INDEX(Vehicle veh, int index);
@@ -1089,7 +1093,7 @@ namespace VEHICLE
 	void _0x009AB49E(Any p0, Any p1);
 	void _0x758C5E2E(Any p0, Any p1);
 	Any GET_VEHICLE_DIRT_LEVEL(Any p0);
-	void SET_VEHICLE_DIRT_LEVEL(Any p0, Any p1);
+	void SET_VEHICLE_DIRT_LEVEL(Any p0, float p1);
 	Any _0xDAC523BC(Any p0);
 	BOOL IS_VEHICLE_DOOR_FULLY_OPEN(Any p0, Any p1);
 	void SET_VEHICLE_ENGINE_ON(Any p0, Any p1, Any p2);
@@ -1432,7 +1436,7 @@ namespace OBJECT
 	Any _0x020497DE(Any p0);
 	Any CREATE_PICKUP(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7);
 	Any CREATE_PICKUP_ROTATE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11);
-	Any CREATE_AMBIENT_PICKUP(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8);
+	Any CREATE_AMBIENT_PICKUP(Any p0, float p1, float p2, float p3, Any p4, Any p5, Any p6, Any p7, Any p8);
 	// 0xE51B4C5A -- no params/results data
 	Any CREATE_PORTABLE_PICKUP(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5);
 	Any _0x56A02502(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5);
@@ -3805,8 +3809,8 @@ namespace FIRE
 	Any GET_NUMBER_OF_FIRES_IN_RANGE(Any p0, Any p1, Any p2, Any p3);
 	void STOP_FIRE_IN_RANGE(Any p0, Any p1, Any p2, Any p3);
 	Any GET_CLOSEST_FIRE_POS(Any p0, Any p1, Any p2, Any p3);
-	void ADD_EXPLOSION(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7);
-	void ADD_OWNED_EXPLOSION(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8);
+	void ADD_EXPLOSION(float p0, float p1, float p2, Any p3, float p4, Any p5, Any p6, float p7);
+	void ADD_OWNED_EXPLOSION(Any p0, float p1, float p2, float p3, Any p4, float p5, Any p6, Any p7, float p8);
 	void _0xCF358946(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8);
 	BOOL IS_EXPLOSION_IN_AREA(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6);
 	BOOL IS_EXPLOSION_IN_SPHERE(Any p0, Any p1, Any p2, Any p3, Any p4);

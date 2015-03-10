@@ -1113,10 +1113,10 @@ namespace ENTITY
 		NativeCall l_NativeCall;
 		return l_NativeCall.Invoke<Vector3>(0xABCF043A, 4, e, float_int(x), float_int(y), float_int(z));
 	}
-	Any GET_ENTITY_PITCH(Any p0)
+	float GET_ENTITY_PITCH(Entity p0)
 	{
 		NativeCall l_NativeCall;
-		return l_NativeCall.Invoke<Any>(0xFCE6ECE5, 1, p0);
+		return l_NativeCall.Invoke<float>(0xFCE6ECE5, 1, p0);
 	}
 	void GET_ENTITY_QUATERNION(Any p0, Any p1, Any p2, Any p3, Any p4)
 	{
@@ -4884,7 +4884,7 @@ namespace VEHICLE
 		NativeCall l_NativeCall;
 		l_NativeCall.Invoke<Void>(0xA42EFA6B, 2, p0, p1);
 	}
-	void SET_VEHICLE_NUMBER_PLATE_TEXT(Any p0, Any p1)
+	void SET_VEHICLE_NUMBER_PLATE_TEXT(Any p0, string p1)
 	{
 		NativeCall l_NativeCall;
 		l_NativeCall.Invoke<Void>(0x400F9556, 2, p0, p1);
@@ -5254,10 +5254,10 @@ namespace VEHICLE
 		NativeCall l_NativeCall;
 		return l_NativeCall.Invoke<Any>(0xFD15C065, 1, p0);
 	}
-	void SET_VEHICLE_DIRT_LEVEL(Any p0, Any p1)
+	void SET_VEHICLE_DIRT_LEVEL(Any p0, float p1)
 	{
 		NativeCall l_NativeCall;
-		l_NativeCall.Invoke<Void>(0x2B39128B, 2, p0, p1);
+		l_NativeCall.Invoke<Void>(0x2B39128B, 2, p0, float_int(p1));
 	}
 	Any _0xDAC523BC(Any p0)
 	{
@@ -6945,10 +6945,10 @@ namespace OBJECT
 		NativeCall l_NativeCall;
 		return l_NativeCall.Invoke<Any>(0xF015BFE2, 12, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
 	}
-	Any CREATE_AMBIENT_PICKUP(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8)
+	Any CREATE_AMBIENT_PICKUP(Any p0, float p1, float p2, float p3, Any p4, Any p5, Any p6, Any p7, Any p8)
 	{
 		NativeCall l_NativeCall;
-		return l_NativeCall.Invoke<Any>(0x17B99CE7, 9, p0, p1, p2, p3, p4, p5, p6, p7, p8);
+		return l_NativeCall.Invoke<Any>(0x17B99CE7, 9, p0, float_int(p1), float_int(p2), float_int(p3), p4, p5, p6, p7, p8);
 	}
 	// 0xE51B4C5A -- no params/results data
 	Any CREATE_PORTABLE_PICKUP(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5)
@@ -18370,15 +18370,15 @@ namespace FIRE
 		NativeCall l_NativeCall;
 		return l_NativeCall.Invoke<Any>(0xC4977B47, 4, p0, p1, p2, p3);
 	}
-	void ADD_EXPLOSION(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7)
+	void ADD_EXPLOSION(float p0, float p1, float p2, Any p3, float p4, Any p5, Any p6, float p7)
 	{
 		NativeCall l_NativeCall;
-		l_NativeCall.Invoke<Void>(0x10AF5258, 8, p0, p1, p2, p3, p4, p5, p6, p7);
+		l_NativeCall.Invoke<Void>(0x10AF5258, 8, float_int(p0), float_int(p1), float_int(p2), p3, float_int(p4), p5, p6, float_int(p7));
 	}
-	void ADD_OWNED_EXPLOSION(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8)
+	void ADD_OWNED_EXPLOSION(Any p0, float p1, float p2, float p3, Any p4, float p5, Any p6, Any p7, float p8)
 	{
 		NativeCall l_NativeCall;
-		l_NativeCall.Invoke<Void>(0x27EE0D67, 9, p0, p1, p2, p3, p4, p5, p6, p7, p8);
+		l_NativeCall.Invoke<Void>(0x27EE0D67, 9, p0, float_int(p1), float_int(p2), float_int(p3), p4, float_int(p5), p6, p7, float_int(p8));
 	}
 	void _0xCF358946(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8)
 	{

@@ -34,11 +34,9 @@ int float_int(float f)
 	return *(int*)&f;
 }
 
-
-
 void CallNativesHere()
 {
-
+	//printf("name %s\n", SCRIPT::GET_THIS_SCRIPT_NAME());
 }
 
 
@@ -46,11 +44,11 @@ void MainThread(uint64_t)
 {
 	//scrThread*			l_pNewThread;
 
-	while(ThreadArray::GetThreadByName("main_persistent") == 0) sys_timer_sleep(1);
+	while(ThreadArray::GetThreadByName("main") == 0) sys_timer_sleep(1);
 
-	printf("Creating our own thread.");
+	printf("Creating our own thread.\n");
 	/*l_pNewThread = */
-	ThreadArray::NewThread("NativeCallThread");
+	while(ThreadArray::NewThread("NativeCallThread") == 0) sys_timer_usleep(100);
 	printf("Thread created, have fun!\n");
 
 	for(;;)

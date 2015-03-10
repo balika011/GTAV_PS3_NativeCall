@@ -17,7 +17,6 @@
     </ClCompile>
     <ClCompile Include="libc.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="memory.cpp" />
     <ClCompile Include="printf.cpp" />
     <ClCompile Include="ThreadArray.cpp" />
   </ItemGroup>
@@ -35,7 +34,6 @@
       <Filter>ScriptMachine</Filter>
     </ClInclude>
     <ClInclude Include="main.h" />
-    <ClInclude Include="memory.h" />
     <ClInclude Include="ThreadArray.h" />
   </ItemGroup>
 </Project>

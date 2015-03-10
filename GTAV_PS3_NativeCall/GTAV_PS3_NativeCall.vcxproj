@@ -13,7 +13,6 @@
   <ItemGroup>
     <ClCompile Include="libc.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="memory.cpp" />
     <ClCompile Include="printf.cpp" />
     <ClCompile Include="ScriptMachine\NativeArg.cpp" />
     <ClCompile Include="ScriptMachine\Natives.cpp" />
@@ -22,7 +21,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h" />
-    <ClInclude Include="memory.h" />
     <ClInclude Include="ScriptMachine\NativeArg.h" />
     <ClInclude Include="ScriptMachine\NativeCall.h" />
     <ClInclude Include="ScriptMachine\Natives.h" />

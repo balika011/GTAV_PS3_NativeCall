@@ -3,8 +3,8 @@
 
 
 
-#define THREAD_ARRAY_ADDR	0x01DDBD78
-#define THREAD_COUNT_ADDR	0x01DDBD80
+#define THREAD_ARRAY_ADDR	0x01E5FE80
+#define THREAD_COUNT_ADDR	0x01E5FE84
 
 int ThreadArray::GetThreadCount()
 {
@@ -110,6 +110,7 @@ scrThread* ThreadArray::NewThread(char* a_szThreadName)
 
 	//printf("Allocating new thread.\n");
 	l_pNewThread = new scrThread(a_szThreadName);			// I need to alloc mine to be sure the method stored on the vmt are mine
+//	printf("Free Thread addr 0x%08X\n", l_pThreadArray->pData[i]);
 	l_pThreadArray->pData[i] = l_pNewThread;
 	//printf("Allocated at addr 0x%08X\n", l_pNewThread);
 
